@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://thenickatnite.github.io/al-folio/sitemap.xml
+Sitemap: https://thenickatnite.github.io/sitemap.xml
