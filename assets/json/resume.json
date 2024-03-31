@@ -29,7 +29,7 @@
       "url": "https://www.haus.io",
       "startDate": "2024-03",
       "endDate": "",
-      "summary": "Working on the Decision Science team, at the intersection of the science, engineering, and customer success teams.",
+      "summary": "Working on the Decision Science team, at the intersection of the science, engineering, and customer success teams. Helping scale Haus to allow customers determine their marketing campaign effectiveness.",
       "highlights": ["Marketing Causal Inference", "Econometric Analysis", "Automation", "Python Programming"]
     },
     {
@@ -45,8 +45,8 @@
   "education": [
     {
       "institution": "California Polytechnic State University",
-      "location": "San Luis Obispo, California",
-      "url": "https://www.calpoly.edu",
+      "location": "San Luis Obispo, CA",
+      "url": "https://gradbusiness.calpoly.edu/ms-economics/",
       "area": "Quantitative Economics",
       "studyType": "MSQE",
       "startDate": "2020",
@@ -56,8 +56,8 @@
     },
     {
       "institution": "University of Northern Iowa",
-      "location": "Cedar Falls, Iowa",
-      "url": "https://uni.edu",
+      "location": "Cedar Falls, IA",
+      "url": "https://business.uni.edu/economics",
       "area": "Economics",
       "studyType": "BA",
       "startDate": "2016",
@@ -77,16 +77,24 @@
   ],
   "skills": [
     {
-      "name": "Physics",
+      "name": "Econometric Analysis",
       "level": "Master",
       "icon": "fa-solid fa-hashtag",
       "keywords": [
-        "Quantum Mechanics",
-        "Quantum Computing",
-        "Quantum Information",
-        "Quantum Cryptography",
-        "Quantum Communication",
-        "Quantum Teleportation"
+        "Difference-in-Differences",
+        "Synthetic Controls",
+        "Synthetic Difference-in-Differences"
+      ]
+    },
+    {
+      "name": "Programming",
+      "level": "Master",
+      "icon":"fa-solid fa-hashtag",
+      "keywords": [
+        "Python",
+        "R",
+        "Rust",
+        "C++"
       ]
     }
   ],
@@ -104,15 +112,34 @@
   ],
   "interests": [
     {
-      "name": "Physics",
+      "name": "Economics",
       "icon": "fa-solid fa-tag",
       "keywords": [
-        "Quantum Mechanics",
-        "Quantum Computing",
-        "Quantum Information",
-        "Quantum Cryptography",
-        "Quantum Communication",
-        "Quantum Teleportation"
+        "Causal Inference",
+        "Synthetic Controls",
+        "Synthetic Difference-in-Differences",
+        "History of Economic Thought"
+      ]
+    },
+    {
+      "name": "Music",
+      "icon": "fa-solid fa-tag",
+      "keywords": [
+        "Indie Rock",
+        "Alt-Country",
+        "Dad Rock",
+        "Hip-Hop",
+        "Jazz",
+        "Improvised Music"
+      ]
+    },
+    {
+      "name": "Film",
+      "icon":"fa-solid fa-tag",
+      "keywords": [
+        "Criterion Collection",
+        "Science Fiction",
+        "Action"
       ]
     }
   ]

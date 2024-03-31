@@ -4,7 +4,7 @@
 
 title: blank # the website title (if blank, full name will be used instead)
 first_name: Nick
-middle_name: A.
+middle_name: Andrew
 last_name: Brown
 email: nickandrewbrown@gmail.com
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
@@ -124,8 +124,8 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # Blog
 # -----------------------------------------------------------------------------
 
-blog_name: al-folio # blog_name will be displayed in your blog page
-blog_description: a simple whitespace theme for academics
+blog_name: Nick Brown # blog_name will be displayed in your blog page
+blog_description: musings
 permalink: /blog/:year/:title/
 
 # Pagination
@@ -182,7 +182,7 @@ announcements:
   limit: 5 # leave blank to include all the news in the `_news` folder
 
 latest_posts:
-  enabled: true
+  enabled: false
   scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
   limit: 3 # leave blank to include all the blog posts
 
