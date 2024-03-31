@@ -27,10 +27,10 @@
       "name": "Haus Analytics",
       "position": "Data Scientist",
       "url": "https://www.haus.io",
-      "startDate": "2024-03-04",
+      "startDate": "2024-03",
       "endDate": "",
-      "summary": "Teaching at Palmer Physical Laboratory (now 302 Frist Campus Center). While not a professor at Princeton, I associated with the physics professors and continued to give lectures on campus.",
-      "highlights": ["Causal Inference", "Data Science"]
+      "summary": "Working on the Decision Science team, at the intersection of the science, engineering, and customer success teams.",
+      "highlights": ["Marketing Causal Inference", "Econometric Analysis", "Automation", "Python Programming"]
     },
     {
       "name": "cQuant",
@@ -38,8 +38,8 @@
       "url": "https://cquant.io",
       "startDate": "2021-06",
       "endDate": "2024-02",
-      "summary": "Teaching at Palmer Physical Laboratory (now 302 Frist Campus Center). While not a professor at Princeton, I associated with the physics professors and continued to give lectures on campus.",
-      "highlights": ["Causal Inference", "Data Science"]
+      "summary": "Built new energy finance models, features for existing models, and patched bugs. Always had an eye towards writing clean, concise, and efficient code.",
+      "highlights": ["Monte Carlo Price Simulation", "Battery Optimization", "Renewable PPA Valuation", "Credit Risk", "R Programming"]
     }
   ],
   "education": [
@@ -52,7 +52,7 @@
       "startDate": "2020",
       "endDate": "2021",
       "score": "10",
-      "courses": ["Theory of Relativity"]
+      "courses": ["Advanced Econometrics I & II", "Microeconometrics", "Computational Methods in Economics", "Microeconomic and Macroeconomic Analysis", "Industrial Organization"]
     },
     {
       "institution": "University of Northern Iowa",
@@ -63,7 +63,7 @@
       "startDate": "2016",
       "endDate": "2019",
       "score": "10",
-      "courses": ["Theory of Relativity"]
+      "courses": ["Econometrics", "Mathematical Economics", "Environmental Economics", "Statistical Computing I & II", "Calculus I & II", "Linear Algebra"]
     }
   ],
   "awards": [
@@ -71,8 +71,8 @@
       "title": "Academic Excellence",
       "date": "2021-06",
       "awarder": "California Polytechnic State University",
-      "url": "https://www.nobelprize.org/prizes/physics/1921/einstein/biographical/",
-      "summary": "The Nobel Prizes are five separate prizes that, according to Alfred Nobel's will of 1895, are awarded to 'those who, during the preceding year, have conferred the greatest benefit to humankind.'"
+      "url": "https://grad.calpoly.edu/about/graduate-recognition.html",
+      "summary": "The Academic Excellence award is given out to the top performing students of a post-graduate cohort at Cal Poly SLO."
     }
   ],
   "skills": [
