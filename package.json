@@ -9,9 +9,18 @@
   "scripts": {
     "start": "eleventy --serve",
     "build": "eleventy",
-    "clean": "rm -rf _site"
+    "clean": "rm -rf _site",
+    "check:html": "html-validate _site",
+    "check:headers": "node scripts/check-headers.js",
+    "check": "npm run check:html && npm run check:links && npm run check:headers",
+    "check:links": "node scripts/check-links.js"
   },
   "devDependencies": {
-    "@11ty/eleventy": "3.1.7"
+    "@11ty/eleventy": "3.1.7",
+    "html-validate": "11.16.3",
+    "wrangler": "4.151.1"
+  },
+  "overrides": {
+    "undici": "7.30.1"
   }
 }

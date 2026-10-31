@@ -1,5 +1,6 @@
 export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets");
+  eleventyConfig.addPassthroughCopy("src/_headers");
 
   // Shown in the footer as the "last updated" stamp.
   eleventyConfig.addGlobalData("buildDate", () => new Date());

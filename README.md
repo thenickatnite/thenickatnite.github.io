@@ -9,7 +9,21 @@ nvm use        # Node 24+
 npm ci
 npm start      # http://localhost:8080
 npm run build  # outputs to _site/
+npm run check  # HTML validation, internal links, security headers
 ```
+
+## Deploys
+
+The site is hosted on Cloudflare as a static-assets Worker (`wrangler.jsonc`). CI (`.github/workflows/ci.yml`) runs on every PR and push to `master`:
+
+- **Checks:** `npm audit` (high and critical only), build, `npm run check`, and Lighthouse (accessibility must score 100, plus performance and page-weight budgets).
+- **External links:** checked by lychee as a non-blocking job.
+- **PRs:** get a preview at `pr-<n>-nickbrown-live.<subdomain>.workers.dev`, posted as a PR comment.
+- **Merges to `master`:** deploy to https://nickbrown.live.
+
+Security headers (CSP, HSTS, etc.) live in `src/_headers`. `scripts/check-headers.js` fails CI if they're loosened.
+
+Actions are pinned to commit SHAs. Dependabot updates npm packages and actions weekly, but only adopts releases at least 14 days old.
 
 ## Layout
 

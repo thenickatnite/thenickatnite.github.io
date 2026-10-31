@@ -3,6 +3,8 @@ export default {
   author: "Nick Brown",
   url: "https://nickbrown.live",
   description: "Nick Brown's corner of the web: live music, the Grateful Dead, John Carpenter movies, and other eccentricities.",
+  // Cloudflare Web Analytics site token (public, not a secret). Empty disables the beacon.
+  cfAnalyticsToken: "",
   nav: [
     { label: "Home", url: "/" },
     { label: "Live Music Map", url: "/music/" },
