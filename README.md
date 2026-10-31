@@ -1,6 +1,6 @@
 # nickbrown.live
 
-Nick Brown's personal site: live music, the Grateful Dead, John Carpenter, and other eccentricities. Built with [Eleventy](https://www.11ty.dev/) as plain static HTML and CSS.
+Nick Brown's personal site: live music, the Grateful Dead, movies, and other eccentricities. Built with [Eleventy](https://www.11ty.dev/) as plain static HTML and CSS.
 
 ## Develop
 

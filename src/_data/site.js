@@ -2,7 +2,7 @@ export default {
   title: "Nick's Place",
   author: "Nick Brown",
   url: "https://nickbrown.live",
-  description: "Nick Brown's corner of the web: live music, the Grateful Dead, John Carpenter movies, and other eccentricities.",
+  description: "Nick Brown's corner of the web: live music, the Grateful Dead, movies, and other eccentricities.",
   // Cloudflare Web Analytics site token (public, not a secret). Only production deploys
   // include the beacon, so local, CI and preview visits aren't counted.
   cfAnalyticsToken: process.env.DEPLOY_ENV === "production" ? "22c30525c7314243baf0110d745ace33" : "",
