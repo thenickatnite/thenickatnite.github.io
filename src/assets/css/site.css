@@ -29,6 +29,7 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 1rem;
   line-height: 1.5;
+  overflow-wrap: break-word; /* long words wrap instead of widening the page at big text sizes */
 }
 
 a { color: var(--link); }
@@ -133,6 +134,38 @@ img { max-width: 100%; height: auto; }
   background: var(--accent);
   text-align: center;
   font-weight: bold;
+}
+
+.gif {
+  display: inline-block;
+  vertical-align: middle;
+}
+.gif img {
+  image-rendering: pixelated;
+}
+
+/* A row of 88x31 buttons. */
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 1rem 0;
+  padding: 0;
+  list-style: none;
+}
+.buttons img {
+  display: block;
+  width: 88px;
+  height: 31px;
+}
+
+/* Code people copy: wraps so it fits on phones. */
+pre.copy {
+  padding: 0.75rem;
+  background: var(--paper);
+  border: 2px inset var(--bevel-dark);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
 }
 
 /* Footer */

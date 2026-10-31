@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="88" height="31" viewBox="0 0 88 31" role="img" aria-labelledby="t">
+  <title id="t">Nick's Place</title>
+  <!-- bevelled grey frame -->
+  <rect width="88" height="31" fill="#000"/>
+  <rect width="87" height="30" fill="#fff"/>
+  <rect x="1" y="1" width="86" height="29" fill="#808080"/>
+  <rect x="1" y="1" width="85" height="28" fill="#c0c0c0"/>
+  <!-- teal "desktop" panel -->
+  <rect x="3" y="3" width="82" height="25" fill="#008080"/>
+  <!-- tiny window icon -->
+  <rect x="6" y="7" width="15" height="17" fill="#c0c0c0"/>
+  <rect x="6" y="7" width="15" height="4" fill="#000080"/>
+  <rect x="8" y="13" width="11" height="1" fill="#000"/>
+  <rect x="8" y="16" width="9" height="1" fill="#000"/>
+  <rect x="8" y="19" width="10" height="1" fill="#000"/>
+  <!-- wordmark -->
+  <text x="54" y="15" text-anchor="middle" font-family="Times New Roman, Times, serif" font-size="12" font-weight="bold" fill="#000080">NICK'S</text>
+  <text x="53" y="14" text-anchor="middle" font-family="Times New Roman, Times, serif" font-size="12" font-weight="bold" fill="#ffff00">NICK'S</text>
+  <text x="53" y="25" text-anchor="middle" font-family="Verdana, Geneva, sans-serif" font-size="7.5" font-weight="bold" fill="#ffffff" letter-spacing="1.5">PLACE</text>
+</svg>
