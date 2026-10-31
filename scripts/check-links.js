@@ -22,7 +22,12 @@ const broken = [];
 let checked = 0;
 for (const file of htmlFiles(root)) {
   const html = readFileSync(file, "utf8");
-  for (const [, url] of html.matchAll(/(?:href|src)="(\/(?!\/)[^"]*)"/g)) {
+  const urls = [...html.matchAll(/(?:href|src)="(\/(?!\/)[^"]*)"/g)].map((m) => m[1]);
+  // srcset holds comma-separated "url descriptor" candidates.
+  for (const [, srcset] of html.matchAll(/srcset="([^"]*)"/g)) {
+    urls.push(...srcset.split(",").map((c) => c.trim().split(/\s+/)[0]).filter((u) => /^\/(?!\/)/.test(u)));
+  }
+  for (const url of urls) {
     checked++;
     if (!resolves(url)) broken.push(`${file}: ${url}`);
   }

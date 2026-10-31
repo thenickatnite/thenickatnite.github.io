@@ -1,17 +1,31 @@
-/* Phase 1 baseline. The full look and feel lands in Phase 3. */
+/* Nick's Place: a late-90s desktop. One palette, system fonts, no animation by default. */
 
 :root {
   --desktop: #008080;
-  --window: #c0c0c0;
+  --face: #c0c0c0;
   --paper: #ffffff;
   --ink: #000000;
   --link: #0000ee;
   --visited: #551a8b;
-  --title-bar: #000080;
+  --title-from: #000080;
+  --title-to: #1084d0;
   --title-ink: #ffffff;
-  --bevel-light: #ffffff;
-  --bevel-dark: #808080;
+  --highlight: #ffffff;
+  --light: #dfdfdf;
+  --shadow: #808080;
+  --dark-shadow: #000000;
   --accent: #ffff00;
+  --lcd: #00ff00;
+
+  /* Win95 3D borders: outer pair + inner pair, drawn with box-shadow so they don't shift layout. */
+  --raised: inset -1px -1px var(--dark-shadow), inset 1px 1px var(--highlight),
+    inset -2px -2px var(--shadow), inset 2px 2px var(--light);
+  --sunken: inset -1px -1px var(--highlight), inset 1px 1px var(--shadow),
+    inset -2px -2px var(--light), inset 2px 2px var(--dark-shadow);
+
+  --serif: "Times New Roman", Times, serif;
+  --ui: Verdana, Geneva, Tahoma, sans-serif;
+  --mono: "Courier New", Courier, monospace;
 }
 
 *,
@@ -20,15 +34,19 @@
   box-sizing: border-box;
 }
 
+html {
+  background: var(--desktop);
+}
+
 body {
   margin: 0 auto;
-  padding: 16px;
+  padding: 16px 16px 0;
   max-width: 52rem;
-  background: var(--desktop);
   color: var(--ink);
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: var(--ui);
   font-size: 1rem;
   line-height: 1.5;
+  overflow-wrap: break-word; /* long words wrap instead of widening the page at big text sizes */
 }
 
 a { color: var(--link); }
@@ -50,23 +68,25 @@ img { max-width: 100%; height: auto; }
 .skip-link:focus {
   left: 16px;
   top: 16px;
+  z-index: 1;
   padding: 0.5rem;
   background: var(--accent);
   color: var(--ink);
 }
 
-/* Header */
+/* ---------- Header ---------- */
 
 .site-header {
   text-align: center;
-  color: var(--accent);
 }
 .site-title {
   margin: 0;
-  font-family: "Times New Roman", Times, serif;
-  font-size: clamp(2rem, 8vw, 3.25rem);
+  font-family: var(--serif);
+  font-size: clamp(2.25rem, 9vw, 3.5rem);
   font-weight: bold;
-  text-shadow: 3px 3px 0 var(--title-bar);
+  line-height: 1.1;
+  color: var(--accent);
+  text-shadow: 3px 3px 0 var(--title-from);
 }
 .site-title a,
 .site-title a:visited {
@@ -74,48 +94,209 @@ img { max-width: 100%; height: auto; }
   text-decoration: none;
 }
 .tagline {
-  margin: 0 0 1rem;
+  margin: 0.25rem 0 1rem;
   color: var(--paper);
+  font-family: var(--serif);
   font-style: italic;
 }
 
-/* Bevelled boxes */
+/* ---------- Buttons ---------- */
 
-.site-nav,
-.window {
-  background: var(--window);
-  border: 2px solid;
-  border-color: var(--bevel-light) var(--bevel-dark) var(--bevel-dark) var(--bevel-light);
+.button {
+  display: inline-block;
+  min-height: 2.25rem;
+  padding: 0.375rem 0.875rem;
+  background: var(--face);
+  box-shadow: var(--raised);
+  color: var(--ink);
+  font-family: var(--ui);
+  text-decoration: none;
+}
+.button:visited {
+  color: var(--ink);
+}
+.button:hover {
+  text-decoration: underline;
+}
+.button:active,
+.button[aria-current="page"] {
+  box-shadow: var(--sunken);
+  padding: 0.4375rem 0.8125rem 0.3125rem 0.9375rem; /* nudge text 1px down-right like a pressed button */
+}
+.button[aria-current="page"] {
+  font-weight: bold;
+}
+/* Keep the bevel when focused: layer the focus halo over it. */
+.button:focus-visible {
+  box-shadow: var(--raised), 0 0 0 6px var(--accent);
+}
+.button[aria-current="page"]:focus-visible {
+  box-shadow: var(--sunken), 0 0 0 6px var(--accent);
 }
 
+/* ---------- Nav (a toolbar) ---------- */
+
+.site-nav {
+  padding: 4px;
+  background: var(--face);
+  box-shadow: var(--raised);
+}
 .site-nav ul {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.25rem 1rem;
-  justify-content: center;
+  gap: 4px;
   margin: 0;
-  padding: 0.5rem;
+  padding: 0;
   list-style: none;
 }
-.site-nav a,
-.site-nav a:visited {
-  color: var(--ink);
+.site-nav li {
+  flex: 1 1 auto;
 }
-.site-nav a[aria-current="page"] {
-  font-weight: bold;
-  text-decoration: none;
+.site-nav .button {
+  width: 100%;
+  text-align: center;
 }
+
+/* ---------- Windows ---------- */
 
 .window {
   margin: 1rem 0;
-  padding: 0 1rem 1rem;
+  padding: 3px;
+  background: var(--face);
+  box-shadow: var(--raised);
 }
-.window > h1 {
-  margin: 0 -1rem 1rem;
-  padding: 0.25rem 0.75rem;
-  background: var(--title-bar);
+
+.title-bar {
+  display: flex;
+  flex-wrap: wrap; /* controls drop below the title when space runs out */
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.125rem 0.25rem 0.125rem 0.5rem;
+  background: linear-gradient(90deg, var(--title-from), var(--title-to));
   color: var(--title-ink);
+}
+.window .title-bar h1,
+.window .title-bar h2 {
+  margin: 0;
+  font-family: var(--ui);
+  font-size: 1.25rem; /* 20px bold counts as large text, so the gradient's light end clears 3:1 */
+  font-weight: bold;
+  line-height: 1.6;
+}
+.window .title-bar h2 {
+  font-size: 1.1875rem;
+}
+
+.window .title-bar h1,
+.window .title-bar h2 {
+  flex: 1 1 10rem; /* share the row with the controls until text gets very large */
+  min-width: 0;
+}
+
+.window-controls {
+  display: flex;
+  flex-shrink: 0;
+  gap: 2px;
+  margin-left: auto;
+}
+.window-controls span {
+  display: grid;
+  place-items: center;
+  width: 1.25rem;
+  height: 1.125rem;
+  background: var(--face);
+  box-shadow: var(--raised);
+  color: var(--ink);
+  font-size: 0.75rem;
+  font-weight: bold;
+  line-height: 1;
+}
+.window-controls span:last-child {
+  margin-left: 2px;
+}
+
+.window-body {
+  padding: 0.75rem 1rem 1rem;
+}
+.window-body > :first-child {
+  margin-top: 0;
+}
+.window-body > :last-child {
+  margin-bottom: 0;
+}
+
+/* Windows nested in a page's content sit a little inset. */
+.window-body .window {
+  margin: 1.5rem 0;
+}
+
+/* ---------- Content ---------- */
+
+.window-body h2,
+.window-body h3 {
+  font-family: var(--serif);
+  line-height: 1.2;
+}
+.window-body h2 { font-size: 1.625rem; }
+.window-body h3 { font-size: 1.3125rem; }
+
+hr {
+  height: 0;
+  margin: 1.5rem 0;
+  border: 0;
+  border-top: 1px solid var(--shadow);
+  border-bottom: 1px solid var(--highlight);
+}
+
+blockquote {
+  margin: 1rem 0;
+  padding: 0.75rem 1rem;
+  background: var(--paper);
+  box-shadow: var(--sunken);
+  font-family: var(--serif);
   font-size: 1.125rem;
+  font-style: italic;
+}
+
+code,
+pre {
+  font-family: var(--mono);
+}
+pre {
+  overflow-x: auto;
+  padding: 0.75rem;
+  background: var(--paper);
+  box-shadow: var(--sunken);
+}
+
+/* A white "text field" panel, for code snippets people copy. */
+.inset {
+  padding: 0.75rem;
+  background: var(--paper);
+  box-shadow: var(--sunken);
+}
+pre.inset {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--paper);
+  box-shadow: var(--sunken);
+}
+th,
+td {
+  padding: 0.375rem 0.625rem;
+  border: 1px solid var(--face);
+  text-align: left;
+  vertical-align: top;
+}
+th {
+  background: var(--face);
+  box-shadow: var(--raised);
 }
 
 .portrait {
@@ -123,32 +304,87 @@ img { max-width: 100%; height: auto; }
   width: 45%;
   max-width: 360px;
   margin: 0 0 1rem 1rem;
-  border: 3px ridge var(--bevel-dark);
+  padding: 3px;
+  background: var(--face);
+  box-shadow: var(--sunken);
 }
 
+/* Under-construction banner: hazard stripes framing a yellow sign. */
 .construction {
   clear: both;
-  padding: 0.5rem;
-  border: 3px dashed var(--ink);
-  background: var(--accent);
+  margin: 1.5rem 0 0;
+  padding: 8px;
+  background: repeating-linear-gradient(-45deg, var(--ink) 0 10px, var(--accent) 10px 20px);
   text-align: center;
+}
+.construction > span {
+  display: block;
+  padding: 0.5rem;
+  background: var(--accent);
+  color: var(--ink);
   font-weight: bold;
 }
 
-/* Footer */
+.gif {
+  display: inline-block;
+  vertical-align: middle;
+}
+.gif img {
+  image-rendering: pixelated;
+}
 
-.site-footer {
-  color: var(--paper);
-  text-align: center;
+/* A row of 88x31 buttons. */
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 1rem 0;
+  padding: 0;
+  list-style: none;
+}
+.buttons img {
+  display: block;
+  width: 88px;
+  height: 31px;
+  image-rendering: pixelated;
+}
+
+/* ---------- Taskbar footer ---------- */
+
+.taskbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 0.75rem;
+  margin: 1.5rem -16px 0;
+  padding: 4px;
+  background: var(--face);
+  box-shadow: inset 0 1px var(--light), inset 0 2px var(--highlight);
   font-size: 0.875rem;
 }
+.taskbar p {
+  margin: 0;
+}
+.taskbar .start {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-weight: bold;
+}
 .counter .digits {
-  padding: 0 0.25rem;
+  padding: 0.125rem 0.375rem;
   background: var(--ink);
-  color: #00ff00;
-  font-family: "Courier New", Courier, monospace;
+  color: var(--lcd);
+  font-family: var(--mono);
   letter-spacing: 0.15em;
 }
+.tray {
+  margin-left: auto !important;
+  padding: 0.25rem 0.625rem;
+  box-shadow: inset -1px -1px var(--highlight), inset 1px 1px var(--shadow);
+}
+
+/* ---------- Small screens ---------- */
 
 @media (max-width: 30rem) {
   .portrait {
@@ -156,5 +392,11 @@ img { max-width: 100%; height: auto; }
     display: block;
     width: 100%;
     margin: 0 auto 1rem;
+  }
+  .window-body {
+    padding: 0.625rem 0.75rem 0.75rem;
+  }
+  .tray {
+    margin-left: 0 !important;
   }
 }

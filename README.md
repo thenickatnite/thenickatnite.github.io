@@ -32,3 +32,21 @@ Actions are pinned to commit SHAs. Dependabot updates npm packages and actions w
 - `src/assets/` is copied as-is: CSS, images and the resume.
 
 See [PLAN.md](PLAN.md) for the roadmap.
+
+## Adding things to pages
+
+**Extra windows.** Wrap Markdown in a window with a title bar:
+
+```njk
+{% window "Now Playing" %}
+Some **Markdown** here.
+{% endwindow %}
+```
+
+**GIFs.** Every GIF has a still frame for visitors whose devices ask for reduced motion.
+
+1. Save the GIF as `src/assets/gifs/<name>.gif`.
+2. Run `scripts/gif-still.sh src/assets/gifs/<name>.gif` to create `<name>-still.png` (macOS).
+3. Use it in a page with `{% gif "<name>", "Alt text describing it", width, height %}`.
+
+The link check fails if the still frame is missing.
