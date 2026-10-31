@@ -35,14 +35,6 @@ See [PLAN.md](PLAN.md) for the roadmap.
 
 ## Adding things to pages
 
-**Extra windows.** Wrap Markdown in a window with a title bar:
-
-```njk
-{% window "Now Playing" %}
-Some **Markdown** here.
-{% endwindow %}
-```
-
 **GIFs.** Every GIF has a still frame for visitors whose devices ask for reduced motion.
 
 1. Save the GIF as `src/assets/gifs/<name>.gif`.

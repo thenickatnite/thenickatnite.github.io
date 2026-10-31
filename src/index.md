@@ -14,4 +14,4 @@ This site is a shrine to the things I care about way too much:
 
 If you're here about my day job, it's on [The Boring Page](/boring/).
 
-<p class="construction"><span>This site is under construction. Please excuse the dust!</span></p>
+<p class="construction">This site is under construction. Please excuse the dust!</p>

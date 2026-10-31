@@ -23,25 +23,19 @@
   <nav class="site-nav" aria-label="Main">
     <ul>
       {%- for item in site.nav %}
-      <li><a class="button" href="{{ item.url }}"{% if item.url == page.url %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
+      <li><a href="{{ item.url }}"{% if item.url == page.url %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
       {%- endfor %}
     </ul>
   </nav>
 
   <main id="main" class="window">
-    <div class="title-bar">
-      <h1>{{ title }}</h1>
-      {% windowControls %}
-    </div>
-    <div class="window-body">
-      {{ content | safe }}
-    </div>
+    <h1>{{ title }}</h1>
+    {{ content | safe }}
   </main>
 
-  <footer class="taskbar">
-    <a class="button start" href="/"><img src="/assets/img/favicon.svg" alt="" width="16" height="16"> Start</a>
+  <footer class="site-footer">
     <p class="counter">You are visitor #<span class="digits">000042</span></p>
-    <p class="tray">Chicago &middot; <time datetime="{{ buildDate | isoDate }}">updated {{ buildDate | isoDate }}</time></p>
+    <p>Last updated {{ buildDate | isoDate }} &middot; Chicago</p>
   </footer>
 </body>
 </html>
