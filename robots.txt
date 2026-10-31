@@ -1,4 +1,2 @@
 User-agent: *
-Disallow:
-
-Sitemap: https://thenickatnite.github.io/sitemap.xml
+Allow: /
