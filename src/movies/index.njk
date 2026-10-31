@@ -1,0 +1,33 @@
+---
+title: Movie Corner
+description: John Carpenter appreciation and whatever Nick's been watching lately.
+---
+
+<p>John Carpenter appreciation, hot takes, and whatever I've been watching lately.</p>
+
+<h2>The John Carpenter Shrine</h2>
+
+<p class="construction">My Carpenter rankings are being carefully argued over. Check back soon!</p>
+
+<h2>Recently Watched</h2>
+
+{% if letterboxd.films.length %}
+<ul class="watch-log">
+{%- for film in letterboxd.films %}
+  <li>
+    <a href="{{ film.url }}"><cite>{{ film.title }}</cite>{% if film.year %} ({{ film.year }}){% endif %}</a>
+    {%- if film.rating %} <span class="stars" aria-hidden="true">{{ film.rating | stars }}</span><span class="visually-hidden">, {{ film.rating }} out of 5 stars</span>{% endif %}
+    {%- if film.liked %} <span class="liked" aria-hidden="true">♥</span><span class="visually-hidden">, liked</span>{% endif %}
+    {%- if film.rewatch %} <span class="tag">rewatch</span>{% endif %}
+    <span class="watched">&middot; <time datetime="{{ film.watched }}">{{ film.watched | readableDate }}</time></span>
+    {%- if film.review %}
+    <q class="review">{{ film.review }}</q>
+    {%- endif %}
+  </li>
+{%- endfor %}
+</ul>
+
+<p class="small">From my <a href="https://letterboxd.com/thenickatnite/">Letterboxd diary</a>.</p>
+{% else %}
+<p>The projector's broken. Catch my diary on <a href="https://letterboxd.com/thenickatnite/">Letterboxd</a> instead.</p>
+{% endif %}

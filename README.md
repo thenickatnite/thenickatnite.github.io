@@ -33,6 +33,11 @@ Actions are pinned to commit SHAs. Dependabot updates npm packages and actions w
 
 See [PLAN.md](PLAN.md) for the roadmap.
 
+## Content data
+
+- **`data/dead.yaml`** holds favorite Grateful Dead shows. The file's comments list the fields. The build checks every entry and stops with a clear message on a typo, a bad date or a missing field.
+- **Letterboxd:** the Movie Corner's "Recently Watched" list is fetched from the RSS feed at build time, and CI rebuilds daily to keep it fresh. Feed text is reduced to plain text and shape-checked, and templates autoescape. If Letterboxd is down, the build reuses the copy published at `/assets/data/letterboxd.json`.
+
 ## Adding things to pages
 
 **GIFs.** Every GIF has a still frame for visitors whose devices ask for reduced motion.

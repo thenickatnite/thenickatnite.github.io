@@ -1,0 +1,27 @@
+# Grateful Dead shrine: favorite shows.
+#
+# One entry per show. Fields:
+#   date       (required) YYYY-MM-DD
+#   venue      (required) e.g. Barton Hall, Cornell University
+#   city       (required) e.g. Ithaca, NY
+#   why        (required) why it rules, a sentence or a paragraph
+#   highlight  (optional) a standout song or moment, e.g. "Scarlet > Fire"
+#   recording  (optional) https link to a recording, e.g. on archive.org
+#   placeholder (optional) true marks an example entry; delete the flag once it's real
+#
+# The build checks this file and stops with a message if something's off.
+
+favorites:
+  - date: 1977-05-08
+    venue: Barton Hall, Cornell University
+    city: Ithaca, NY
+    why: Placeholder entry. Replace with why this show rules for you, or delete it.
+    highlight: Scarlet Begonias > Fire on the Mountain
+    placeholder: true
+
+  - date: 1972-08-27
+    venue: Old Renaissance Faire Grounds
+    city: Veneta, OR
+    why: Placeholder entry. Replace with why this show rules for you, or delete it.
+    highlight: Dark Star
+    placeholder: true
