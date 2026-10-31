@@ -50,9 +50,21 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      # Own-domain URLs (canonical links) are covered by the internal link check.
       - uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
         with:
-          args: --no-progress --scheme https --scheme http 'src/**/*.md' 'src/**/*.njk'
+          args: >-
+            --no-progress
+            --root-dir ${{ github.workspace }}/_site
+            --index-files index.html
+            --exclude '^https://nickbrown\.live'
+            '_site/**/*.html'
           fail: true
 
   preview:
@@ -79,13 +91,24 @@ jobs:
       - run: npm run build
       - name: Upload preview version
         id: upload
+        shell: bash # explicit shell turns on pipefail, so wrangler errors aren't masked by tee
         run: |
           if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
             echo "::notice::Cloudflare secrets not set; skipping preview."
             exit 0
           fi
-          npx wrangler versions upload --preview-alias "pr-$PR_NUMBER" | tee upload.log
-          url=$(grep -oE "https://pr-$PR_NUMBER-[a-z0-9.-]+\.workers\.dev" upload.log | head -n1)
+          if ! npx wrangler versions upload --preview-alias "pr-$PR_NUMBER" 2>&1 | tee upload.log; then
+            if grep -q "Worker that does not yet exist" upload.log; then
+              echo "::notice::Worker not created yet (first production deploy creates it); skipping preview."
+              exit 0
+            fi
+            exit 1
+          fi
+          url=$(grep -oE "https://pr-$PR_NUMBER-[a-z0-9.-]+\.workers\.dev" upload.log | head -n1 || true)
+          if [ -z "$url" ]; then
+            echo "::error::Upload succeeded but no preview URL was found in wrangler's output."
+            exit 1
+          fi
           echo "url=$url" >> "$GITHUB_OUTPUT"
         env:
           PR_NUMBER: ${{ github.event.pull_request.number }}
