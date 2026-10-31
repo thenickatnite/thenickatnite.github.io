@@ -100,7 +100,7 @@ Deploys go through GitHub Actions instead of Cloudflare's Git integration, so th
 ## Phases
 
 1. ✅ **Teardown + skeleton** (branch `rebuild`): delete al-folio. Add Eleventy, the base layout, nav, home page and the boring page with the resume.
-2. 🔨 **CI/CD + hosting** (in-repo part done; Cloudflare and GitHub settings pending): buy the domain, set up the Cloudflare project, workflows, headers, branch protection, Dependabot and the github.io redirect.
+2. ✅ **CI/CD + hosting**: buy the domain, set up the Cloudflare project, workflows, headers, branch protection, Dependabot and the github.io redirect.
 3. **Look and feel**: palette, fonts, buttons, counter, GIF accents, mobile pass.
 4. **Movie corner + Dead shrine**: content pages and the Letterboxd data file.
 5. **Music map v1**: data schema, venue and show list page (works without JS), and a MapLibre map using a temporary public demo basemap.

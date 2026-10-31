@@ -106,7 +106,7 @@ jobs:
           fi
           url=$(grep -oE "https://pr-$PR_NUMBER-[a-z0-9.-]+\.workers\.dev" upload.log | head -n1 || true)
           if [ -z "$url" ]; then
-            echo "::error::Upload succeeded but no preview URL was found in wrangler's output."
+            echo "::error::Upload succeeded but wrangler printed no preview URL. Check that the Cloudflare account has a workers.dev subdomain (Workers & Pages → Overview) and that Version URLs are enabled for the Worker (Settings → Domains & Routes)."
             exit 1
           fi
           echo "url=$url" >> "$GITHUB_OUTPUT"
@@ -146,6 +146,8 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+        env:
+          DEPLOY_ENV: production
       - name: Deploy to Cloudflare
         run: npx wrangler deploy
         env:
