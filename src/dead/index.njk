@@ -1,0 +1,30 @@
+---
+title: The Grateful Dead Shrine
+description: Nick's favorite Grateful Dead shows, and why they rule.
+---
+
+<p>My favorite shows, the tapes worth hunting down, and soon every Dead-family show I've caught in person.</p>
+
+<h2>Favorite Shows</h2>
+
+{% if dead.favorites.length %}
+<ol class="favorite-shows">
+{%- for show in dead.favorites %}
+  <li{% if show.placeholder %} class="placeholder"{% endif %}>
+    <h3><time datetime="{{ show.date }}">{{ show.date | readableDate }}</time></h3>
+    <p class="where">{{ show.venue }} &middot; {{ show.city }}</p>
+    {%- if show.highlight %}
+    <p class="highlight"><strong>Don't miss:</strong> {{ show.highlight }}</p>
+    {%- endif %}
+    <p>{{ show.why }}</p>
+    {%- if show.recording %}
+    <p><a href="{{ show.recording }}">Listen to the recording</a></p>
+    {%- endif %}
+  </li>
+{%- endfor %}
+</ol>
+{% else %}
+<p>The list is still being argued over.</p>
+{% endif %}
+
+<p class="construction">This page is under construction. Check back soon!</p>

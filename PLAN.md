@@ -20,7 +20,7 @@ A small, playful personal site with a tasteful web 1.0 look. It works on phones,
 1. **Home / about**: who Nick is (the fun version), a fake visitor counter, an "under construction" corner and a site map.
 2. **Live music map**: a zoomable map of every venue, with pins clustered by city. Clicking a pin shows the venue, dates, bands and notes. A list view below the map works without JS and for screen readers.
 3. **Grateful Dead shrine**: favorite shows (date, venue, why it rules, archive.org link). Dead-family shows from the music data are highlighted on the map.
-4. **Movie corner**: hand-written shrines (Carpenter first) plus a "recently watched" box pulled from Letterboxd RSS at build time.
+4. **Movie corner**: a few hand-written takes plus a "recently watched" box pulled from Letterboxd RSS at build time.
 5. **Links / buttons**: a links page with 88x31 buttons.
 6. **The boring page**: one short work blurb and the resume PDF, labeled as boring.
 
@@ -101,8 +101,8 @@ Deploys go through GitHub Actions instead of Cloudflare's Git integration, so th
 
 1. ✅ **Teardown + skeleton** (branch `rebuild`): delete al-folio. Add Eleventy, the base layout, nav, home page and the boring page with the resume.
 2. ✅ **CI/CD + hosting**: buy the domain, set up the Cloudflare project, workflows, headers, branch protection, Dependabot and the github.io redirect.
-3. **Look and feel**: palette, fonts, buttons, counter, GIF accents, mobile pass.
-4. **Movie corner + Dead shrine**: content pages and the Letterboxd data file.
+3. ✅ **Look and feel** (kept the original look; added favicon, 88x31 button, GIF support): palette, fonts, buttons, counter, GIF accents, mobile pass.
+4. 🔨 **Movie corner + Dead shrine** (Letterboxd box and shrine template done; content pending): content pages and the Letterboxd data file.
 5. **Music map v1**: data schema, venue and show list page (works without JS), and a MapLibre map using a temporary public demo basemap.
 6. **Map v2**: self-hosted PMTiles on R2, the custom retro style, and Dead-family highlighting.
 7. **Content backfill**: ongoing.
@@ -113,5 +113,5 @@ Deploys go through GitHub Actions instead of Cloudflare's Git integration, so th
 - [x] Letterboxd username: `thenickatnite` (feed: `https://letterboxd.com/thenickatnite/rss/`).
 - [ ] Backfill the show list. The source is an Apple Notes table. Paste it as tab-separated text, and Claude converts it to `venues.yaml` + `shows.yaml`, looks up venue coordinates, and flags anything ambiguous for Nick to check.
 - [x] Map coverage: North America. Extract a bounding box of about lon -170 → -50, lat 7 → 72, up to ~z10.
-- [ ] Gather assets: favorite Dead shows, Carpenter takes, any GIFs or buttons you love.
+- [ ] Gather assets: favorite Dead shows, movie takes, any GIFs or buttons you love.
 - [ ] Repo name: keep `thenickatnite.github.io` (needed for the redirect) or rename it.

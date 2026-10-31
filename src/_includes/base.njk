@@ -30,7 +30,7 @@
 
   <main id="main" class="window">
     <h1>{{ title }}</h1>
-    {{ content | safe }}
+    {{ content | trim | safe }}
   </main>
 
   <footer class="site-footer">

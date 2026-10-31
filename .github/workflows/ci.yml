@@ -4,6 +4,10 @@ on:
   pull_request:
   push:
     branches: [master]
+  # Daily rebuild so the Letterboxd watch log stays fresh (runs on master).
+  schedule:
+    - cron: "17 11 * * *" # 11:17 UTC, early morning in Chicago
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -127,7 +131,7 @@ jobs:
   deploy:
     name: Production deploy
     needs: checks
-    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     environment:

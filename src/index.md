@@ -10,7 +10,7 @@ This site is a shrine to the things I care about way too much:
 
 - **Live music.** I've been keeping a list of every show I've seen. Soon you'll be able to explore it on the [Live Music Map](/music/).
 - **The Grateful Dead.** There's a [shrine](/dead/), naturally.
-- **Movies,** especially anything by John Carpenter. Head to the [Movie Corner](/movies/).
+- **Movies.** See what I've been watching in the [Movie Corner](/movies/).
 
 If you're here about my day job, it's on [The Boring Page](/boring/).
 
