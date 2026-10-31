@@ -61,6 +61,7 @@ jobs:
       - run: npm ci
       - run: npm run build
       # Own-domain URLs (canonical links) are covered by the internal link check.
+      # Letterboxd answers bots with 403; its links come from Nick's own feed, so skip them.
       - uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
         with:
           args: >-
@@ -68,6 +69,7 @@ jobs:
             --root-dir ${{ github.workspace }}/_site
             --index-files index.html
             --exclude '^https://nickbrown\.live'
+            --exclude '^https://letterboxd\.com/'
             '_site/**/*.html'
           fail: true
 
