@@ -9,7 +9,7 @@ export default {
   nav: [
     { label: "Home", url: "/" },
     { label: "Live Music Map", url: "/music/" },
-    { label: "Dead Shrine", url: "/dead/" },
+    { label: "Grateful Dead", url: "/dead/" },
     { label: "Movie Corner", url: "/movies/" },
     { label: "Links", url: "/links/" },
     { label: "The Boring Page", url: "/boring/" },
