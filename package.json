@@ -17,9 +17,9 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "3.1.7",
-    "html-validate": "11.16.3",
+    "html-validate": "11.17.0",
     "js-yaml": "5.5.0",
-    "wrangler": "4.151.1"
+    "wrangler": "4.152.0"
   },
   "overrides": {
     "undici": "7.30.1"
