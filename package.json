@@ -16,10 +16,10 @@
     "check:links": "node scripts/check-links.js"
   },
   "devDependencies": {
-    "@11ty/eleventy": "3.1.7",
-    "html-validate": "11.17.0",
+    "@11ty/eleventy": "3.1.8",
+    "html-validate": "11.19.0",
     "js-yaml": "5.5.0",
-    "wrangler": "4.152.0"
+    "wrangler": "4.158.0"
   },
   "overrides": {
     "undici": "7.30.1"
